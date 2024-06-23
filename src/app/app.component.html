@@ -9,37 +9,35 @@
 
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand text-white d-flex" routerLink="dashboard">
+      <a class="navbar-brand text-white d-flex" routerLink="videos">
         <!-- <img src="./assets/images/logo.png" style="width: 24px;height: 24px;"> -->
         <h5 class="mx-3 my-0" style="color: black;"><b>Premic-Edu</b></h5>
       </a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span><i class="bi bi-list"></i></span>
       </button>
-      <!-- <div class="d-flex justify-content-end">
+
+      <div class="d-flex justify-content-end">
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav"> 
-            <li class="nav-item dropdown" >
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style = "color:white;">
-                <i class="bi bi-person fs-5"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
-              </ul>
-            </li> -->
-            <!-- *ngIf="!isLoggedIn" -->
-            <!-- <li class="nav-item">
-              <button class="btn btn-warning me-2" ><i class="bi bi-person"></i> Register</button>
+          <ul class="navbar-nav me-5"> 
+            <li class="nav-item" *ngIf="isLoggedIn">
+              <button class="btn btn-white me-2"><i class="bi bi-camera-reels"></i></button>
             </li>
-            <li class="nav-item">
-              <button class="btn btn-warning me-2" ><i class="bi bi-shop"></i> Create store</button>
-            </li>
+            
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
+                </ul>
+              </li>    
           </ul>
         </div>
-      </div> -->
-      
+      </div>
     </div>
+    
   </nav>
 </body>
 </html>

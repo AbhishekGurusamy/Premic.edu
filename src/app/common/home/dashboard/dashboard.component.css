@@ -1,0 +1,21 @@
+#side-nav{
+    background-color: #FFF1AE;   
+}
+
+button{
+    /* width: 150px; */
+    color: black;
+}
+button:hover{
+    color: rgb(245, 150, 25);
+}
+
+.nav-pills > li > button.active {
+    background-color: #F3D43F;
+    color: black;
+}
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }

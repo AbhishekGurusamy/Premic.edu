@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WatchvideoComponent } from './common/home/watchvideo/watchvideo.component';
+import { LandingComponent } from './landingpage/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreateUserComponent,
     DashboardComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    WatchvideoComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

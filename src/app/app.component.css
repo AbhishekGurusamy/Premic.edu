@@ -1,3 +1,6 @@
 .navbar{
     background-color: #F3D43F;
 }
+.dropdown-menu{
+    min-width: 40px;
+}
