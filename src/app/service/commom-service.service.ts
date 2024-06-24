@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CommomServiceService {
 
-  url = "http://13.234.226.91:8000"
+  url = "http://3.111.59.100:8000"
 
   constructor(private http:HttpClient) { }
 
