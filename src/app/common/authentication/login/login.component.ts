@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.toast.success("Login Successful")
         localStorage.setItem("token",response.details.token)
         localStorage.setItem("username",response.details.username)
-        this.route.navigate(["videos"])
+        window.location.href = '/videos'
 
       }
     

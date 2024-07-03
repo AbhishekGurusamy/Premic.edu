@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,20 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WatchvideoComponent } from './common/home/watchvideo/watchvideo.component';
 import { LandingComponent } from './landingpage/landing/landing.component';
+
+import { User } from './shared/user.model';
+import { CommomServiceService } from './service/commom-service.service';
+
+
+export function whoAmILoader(whoAmIService: CommomServiceService ): () => Promise<any> {
+  return () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      whoAmIService.setToken(token);
+    }
+    return whoAmIService.initialize();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +51,15 @@ import { LandingComponent } from './landingpage/landing/landing.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    CommomServiceService,User,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: whoAmILoader,
+      deps: [CommomServiceService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

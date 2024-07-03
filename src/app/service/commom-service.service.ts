@@ -1,14 +1,49 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../shared/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommomServiceService {
+  // url = "http://3.111.59.100:8000"
+  url = "http://127.0.0.1:8000";
 
-  url = "http://3.111.59.100:8000"
+  
+  private token: string | undefined;
 
-  constructor(private http:HttpClient) { }
+  userApi = this.url + '/auth/whoami';
+
+  constructor(private http:HttpClient, private user: User) { }
+
+  setToken(token: string) {
+    this.token = token;
+  }
+
+  initialize(): Promise<any> {
+    if (!this.token) {
+      console.error('Unable to call whoami API.');
+      return Promise.resolve();
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': this.token
+    });
+
+    return this.http.get(this.userApi, { headers }).toPromise()
+      .then((response:any) => {
+        console.log('WhoAmI API Response:', response);
+				this.user.uid = response['id']
+				this.user.user_role = response['role']
+				// this.user.email = response['email']
+				this.user.first_name = response['username']
+				// this.user.emp_code = response['emp_code']
+				// this.user.id = response['id']
+      })
+      .catch(error => {
+        console.error('WhoAmI API Error:', error);
+      });
+  }
 
   loginApi(payload:any){
     let api_url = this.url + "/auth/login"

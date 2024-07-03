@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './shared/user.model';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,17 @@ export class AppComponent implements OnInit{
   isLoggedIn = false
   userName:any
 
-  constructor(){}
+  constructor(private user: User){}
 
   ngOnInit(): void {
     if (localStorage.getItem('token') && localStorage.getItem('username')){
       this.userName = localStorage.getItem('username')
       this.isLoggedIn = true
     }
+  }
+
+  logout(){
+    
   }
 
   }

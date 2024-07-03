@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-
-  <nav class="navbar navbar-expand-lg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
     <div class="container-fluid">
-      <a class="navbar-brand text-white d-flex" routerLink="videos">
-        <!-- <img src="./assets/images/logo.png" style="width: 24px;height: 24px;"> -->
-        <h5 class="mx-3 my-0" style="color: black;"><b>Premic-Edu</b></h5>
-      </a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span><i class="bi bi-list"></i></span>
-      </button>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white d-flex" routerLink="videos">
+            <!-- <img src="./assets/images/logo.png" style="width: 24px;height: 24px;"> -->
+            <h5 class="mx-3 my-0" style="color: black"><b>Premic-Edu</b></h5>
+          </a>
 
-      <div class="d-flex justify-content-end">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav me-5"> 
-            <li class="nav-item" *ngIf="isLoggedIn">
-              <button class="btn btn-white me-2"><i class="bi bi-camera-reels"></i></button>
-            </li>
-            
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-person-circle"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
-                </ul>
-              </li>    
-          </ul>
+          <div class="d-flex">
+            <div class="dropdown">
+              <button
+                class="btn dropdown-toggle me-3"
+                style="border: none"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="fw-bold"
+                  ><i class="bi bi-person-circle"></i>&nbsp;Hi,&nbsp;{{
+                    userName
+                  }}</span
+                >
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    (click)="logout()"
+                    style="cursor: pointer"
+                    ><i class="bi bi-box-arrow-right"></i> Sign out</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
-    
-  </nav>
-</body>
+  </body>
 </html>
 
 <router-outlet></router-outlet>
-

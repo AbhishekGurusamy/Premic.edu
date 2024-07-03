@@ -1,3 +1,7 @@
+.container-fluid{
+    padding: 0px;
+}
+
 .navbar{
     background-color: #F3D43F;
 }

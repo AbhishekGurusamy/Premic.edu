@@ -23,7 +23,8 @@ export class LandingComponent implements OnInit{
         console.log(res['result']);
         this.videourl = res['result']
         this.videourl.forEach((element:any) => {
-          element.videoFile = `http://3.111.59.100:8000${element.videoFile}`
+          // element.videoFile = `http://3.111.59.100:8000${element.videoFile}`
+          element.videoFile = `http://127.0.0.1:8000${element.videoFile}`
         });
     });
   }
